@@ -23,7 +23,17 @@ var fightOrSkip = function() {
 }
 
 var fight = function(enemy) {
+  
+  var isPlayerTurn = true;
+
+  if (Math.random() > 0.5) {
+    isPlayerTurn = false;
+  }
+  
+  
   while (playerInfo.health > 0 && enemy.health > 0) {
+    if (isPlayerTurn) {
+    
     if (fightOrSkip()) {
       break;
     } 
@@ -66,6 +76,8 @@ var fight = function(enemy) {
     } else {
       window.alert(playerInfo.name + ' still has ' + playerInfo.health + ' health left.');
     }
+  }
+  isPlayerTurn = !isPlayerTurn;
   }
 };
 
